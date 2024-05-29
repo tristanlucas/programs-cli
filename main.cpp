@@ -16,7 +16,6 @@ class home{
     cout << " reference value is : " << &a << endl;
 
 }
-
 };
 
 struct personal{
@@ -35,13 +34,36 @@ struct personal{
     }
 }personptr;
 
+void whereisXYZ( int x, double y = 15, double z = 15.6){
+    cout << "address of x is " << &x << endl;
+    cout << "value of x is " << x << endl;
+    cout << "address of y is " << &y << endl;
+    cout << "value of y is " << y << endl;
+    cout << "address of z is " << &z << endl;
+    cout << "value of z is " << z << endl;
+}
+
+void passByPtr(int *ap, float * bp){
+    cout << "point to ap .. " << *ap << endl;
+    cout << "point to bp .. " << *bp << endl;
+    cout << "address to bp .. " << &bp << endl;
+    cout << "address to ap .. " << &ap << endl;
+}
+void multiply (int *x, int *y){
+    cout << " x * y = " << (*x) * (*y) << endl; 
+}
 
 int main(){
+
+    int x = 11;
+    int y = 15;
 
     personal *personpoint = &personptr;
     personpoint->name = "KyawSwar Tun";
     personpoint->age = 15;
+    cout << "address of personpoint->age is " << &personpoint->age << endl;
     personpoint->weight = 30.01;
+    cout << "address of personpoint->weight is " << &personpoint->weight << endl;
     
 
     home h1;
@@ -51,7 +73,6 @@ int main(){
     h1.whereisit(h1.address);
     h1.whatishomeNo(h1.no);
 
-    
     
     enum questions{
         name,
@@ -68,22 +89,26 @@ int main(){
         cout << "program is starting " << i++ << "please wait .. " << endl;
     }
 
-    cout<< "enter [ 1 >> name, 2 >> name & Age, 3 >> Age Only " << endl << " 4 >> job, 5 >> MemAddress, 6 >> passion, 7 >> favMeal] ?" << endl;
+    cout<< "enter [ 1 >> pointer pass, 2 >> name & Age, 3 >> X Y Z Corrdinates " << endl << " 4 >> job, 5 >> MemAddress, 6 >> passion, 7 >> favMeal] ?" << endl;
     int inputcase;
     cin >> inputcase;
     
     switch(inputcase){
         case 1:
-            cout<< "Requesting For Name .. ";
+            cout<< "Requesting For ap bp .. ";
+            passByPtr(&personpoint->age, &personpoint->weight);
+            cout<< "requesing for name .. ";
             personpoint->getName(personpoint->name);
+
         break;
         case 2:
             cout<< "Requesting For Name & Age .. ";
             personpoint->iam(age, personpoint->name);
         break;
         case 3:
-            cout<< "Requesting For Age ..";
-            personpoint->age = age;
+            cout<< "Requesting X Y Z Corrdinates ..";
+            whereisXYZ(x);
+            multiply(&x, &y);
         break;
         case 4:
             cout << " Requesting For Address .. ";
@@ -99,6 +124,4 @@ int main(){
 
     //Entry Controlled Loop >> For , While
     //Exit Controlled Loop >> do while 
-
-
 }
