@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <unordered_map>
 using namespace std;
 
 class home{
@@ -8,7 +8,6 @@ class home{
     //int inf_arr [] = {233,226,54,21,289,304};
     int arrmatrix [3][4][4] ; // 3 dimension matrix
 
-
     public:
     int no ;
     string address ;
@@ -16,7 +15,6 @@ class home{
     void setArrValue(int index, int value){
         if(index>=0 && index<5){
             arr[index]=value;
-
         }else {
             cout << "Out of index" << endl;
         }
@@ -36,7 +34,7 @@ class home{
             cout << "array no "<< i << " is " << arr[i] << std::endl; ;
         }
         std::cout << "size of arr in bytes is " << sizeof(arr) << " bytes" << endl ; // int = 4 bytes * 5 arr = 20 bytes. 
-        std::cout << "size of arr is " << sizeof(arr[5]) ;
+        std::cout << "size of arr is " << sizeof(arr[5]) << endl;
     }
 
 
@@ -47,10 +45,10 @@ class home{
         cout << "Home No is : " << no << endl;
     }
     void display(int &a){
-    cout << " reference value is : " << &a << endl;
+        cout << " reference value is : " << &a << endl;
     }
     void multiply (int *x, int *y){
-    int mrst = (*x) * (*y);
+        int mrst = (*x) * (*y);
     cout << " x * y = " <<  mrst << endl; 
     
     }
@@ -88,11 +86,33 @@ void passByPtr(int *ap, float * bp){
     cout << "address to ap .. " << ap << endl;
 }
 
+void findArr2Size(double (&arr2)[10]){
+    cout << "Size of double array 2 is : " << sizeof(arr2) << endl;
+}
+
+void ptr_arr(){
+    int marks[10];
+    int *ptr=marks;
+    cout << "address of marks is : " << &marks << endl;
+    //cout << "pointer of marks is : " << ++ptr << endl; // added 4 bytes
+    int *ptr1 = ptr ;
+    cout << "pointer plus of ptr1 is : " << &ptr1 << endl; //address of ptr1 pointer
+    cout << "plus pointer of ++ptr is : " << ++ptr << endl; // added 4 bytes
+}
+
+void stringRepresent(){
+    char st[] = {"Hello GEO"};
+    std::cout << st << endl; 
+    std::cout << "the size of st is " << sizeof(st) << std::endl; 
+
+}
 
 int main(){
 
     int x = 11;
     int y = 15;
+    
+    double arr2[10];
 
     personal *personpoint = &personptr;
     personpoint->name = "KyawSwar Tun";
@@ -107,6 +127,7 @@ int main(){
     int *a = &h1.no;
     h1.whereisit(h1.address);
     h1.whatishomeNo(h1.no);
+    
 
     enum questions{
         name,
@@ -125,11 +146,37 @@ int main(){
         //cout << "program is starting " << arr [i] << " please wait .. " << endl;
     }
 
-    cout<< "enter [ 1 >> pointer pass, 2 >> name & Age, 3 >> X Y Z Corrdinates " << endl << " 4 >> job, 5 >> MemAddress, 6 >> array, 7 >> favMeal] ?" << endl ;
-    int inputcase;
-    cin >> inputcase;
-    
-    switch(inputcase){
+    cout << "aa 1 >> pointer pass" << 
+    endl << "bb 1 >> name & Age" <<
+    endl << "cc 1 >> X Y Z Corrdinates " <<  
+    endl << "dd 1 >> job"<< 
+    endl << "ee 1 >> MemAddress" <<
+    endl << "ff 1 >> array" << 
+    endl << "gg 1 >> arrPtr " << 
+    endl << "hh 1 >> typeCasting " << 
+    endl << "ii 1 >> Reserved " << 
+    endl << "exit() to quit! " << 
+    endl << " >> "; 
+    std::unordered_map<std::string, int> cases;
+    cases["aa 1"] = 1;
+    cases["bb 1"] = 2;
+    cases["cc 1"] = 3;
+    cases["dd 1"] = 4;
+    cases["ee 1"] = 5;
+    cases["ff 1"] = 6;
+    cases["gg 1"] = 7;
+    cases["hh 1"] = 8;
+    cases["ii 1"] = 9;
+
+while(true){
+    string inputcase;
+    //cin >> inputcase;
+    getline(cin, inputcase);
+    if (inputcase == "exit()") {
+            break;
+        }
+
+    switch(cases[inputcase]){
         case 1:
             cout<< "Requesting For ap bp .. ";
             passByPtr(&personpoint->age, &personpoint->weight);
@@ -162,11 +209,22 @@ int main(){
             h1.setArrValue(4,520);
             cout << "The value is " << h1.getArrValue(2) << endl;
             h1.printArr();
+            findArr2Size(arr2);
+        break;
+        case 7:
+            cout<< "------ Printing Ptr & Array ! --------" << endl;
+            ptr_arr();
+        break;
+        case 8:
+            cout<< "------ String Representation ! --------" << endl;
+            stringRepresent();
         break;
         default:
-            cout<< "Nothing to choose .. ";
+            cout<< "Shut the fuck up Bitch !" << "Type What I said !" << endl;
         break;
     }
+
+}
 
     //Entry Controlled Loop >> For , While
     //Exit Controlled Loop >> do while 
