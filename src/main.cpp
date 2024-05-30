@@ -1,5 +1,6 @@
 #include <iostream>
 #include <unordered_map>
+#include <map>
 using namespace std;
 
 class home{
@@ -58,6 +59,7 @@ struct personal{
     int age ;
     string name ;
     float weight;
+    int& a = age;
 
     void iam(int age, string name){
         cout << "I am " << name << " and " << age << "years old now" << endl;
@@ -141,10 +143,19 @@ int main(){
     };
 
 
-    for(int i = 0; i <= 4 ; i++){
-        //arr [i] = 23+i;
-        //cout << "program is starting " << arr [i] << " please wait .. " << endl;
+    std::map<char, int> mydist{{'a',27}, {'b',22}};
+
+    for(const auto& [key, value]: mydist){
+        
+        cout <<  key << " has the value " << value << endl;
     }
+
+    int num = 12;
+    int& ref = num;
+    const int& refx = ref;
+    cout << "Reference is " << &ref << " "<< refx <<  endl;
+    //int& refx = 11;
+
 
     cout << "aa 1 >> pointer pass" << 
     endl << "bb 1 >> name & Age" <<
@@ -187,6 +198,8 @@ while(true){
         case 2:
             cout<< "Requesting For Name & Age .. ";
             personpoint->iam(age, personpoint->name);
+            cout<< "Age of a is : " << &personpoint->age << endl;
+            cout<< "Age of a is : " << a << endl;
         break;
         case 3:
             cout<< "Requesting X Y Z Corrdinates ..";
