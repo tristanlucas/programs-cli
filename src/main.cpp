@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <map>
+#include <variant>
 using namespace std;
 
 class home{
@@ -109,6 +110,48 @@ void stringRepresent(){
 
 }
 
+inline int fac(int n){
+    if (n<2) {return 2;};
+    return n * fac(n-1);
+
+}
+
+struct PrintVisitor {
+    void operator()(int i) const {
+        std::cout << "int: " << i << std::endl;
+    }
+    void operator()(float f) const {
+        std::cout << "float: " << f << std::endl;
+    }
+    void operator()(const std::string& s) const {
+        std::cout << "string: " << s << std::endl;
+    }
+};
+
+void typeUnionTest(){
+        std::variant<int, float, std::string> v1;
+        cout << "------ Variant Test Representation ! --------" << endl;
+        v1 = 42;
+        std::visit(PrintVisitor(), v1);
+        v1 = 3.14f;
+        std::visit(PrintVisitor(), v1);
+        v1 = std::string("Variant Testing");
+        std::visit(PrintVisitor(), v1);
+        cout<< " Type Safe Union " << endl;
+}
+
+std::optional<std::string> StringFactory(bool create){
+    if (create){
+        return "Modern C++ is Awesome ";
+    }
+    return {};
+}
+
+void strFactory(){
+    cout << StringFactory(true).value() << '\n';
+    cout << StringFactory(false).value_or(":(") << '\n';
+}
+
 int main(){
 
     int x = 11;
@@ -165,7 +208,8 @@ int main(){
     endl << "ff 1 >> array" << 
     endl << "gg 1 >> arrPtr " << 
     endl << "hh 1 >> typeCasting " << 
-    endl << "ii 1 >> Reserved " << 
+    endl << "ii 1 >> inline functions " << 
+    endl << "jj 1 >> variant type safe " << 
     endl << "exit() to quit! " << 
     endl << " >> "; 
     std::unordered_map<std::string, int> cases;
@@ -178,6 +222,11 @@ int main(){
     cases["gg 1"] = 7;
     cases["hh 1"] = 8;
     cases["ii 1"] = 9;
+    cases["jj 1"] = 10;
+
+    int fac0 = fac(0);
+    int fac1 = fac(1);
+    int fac2 = fac(2);
 
 while(true){
     string inputcase;
@@ -186,14 +235,12 @@ while(true){
     if (inputcase == "exit()") {
             break;
         }
-
     switch(cases[inputcase]){
         case 1:
             cout<< "Requesting For ap bp .. ";
             passByPtr(&personpoint->age, &personpoint->weight);
             cout<< "requesing for name .. ";
             personpoint->getName(personpoint->name);
-
         break;
         case 2:
             cout<< "Requesting For Name & Age .. ";
@@ -232,6 +279,14 @@ while(true){
             cout<< "------ String Representation ! --------" << endl;
             stringRepresent();
         break;
+        case 9:
+            cout << "------ inline fun Representation ! --------" << endl;
+            cout << "total: " << fac0 + fac1 + fac2 << endl;
+        break;
+        case 10:
+            typeUnionTest();
+            strFactory();
+        break;
         default:
             cout<< "Shut the fuck up Bitch !" << "Type What I said !" << endl;
         break;
@@ -239,6 +294,15 @@ while(true){
 
 }
 
+
+
     //Entry Controlled Loop >> For , While
     //Exit Controlled Loop >> do while 
+
+    //C++ Utility
+    // Language Support Libraries
+    // std::size_t, std::shared_ptr, std::exception, asserts, std::vector{1,2}
+
+    // General - Purpose Libraries
+    // std::abort, std::chrono::duration, std::variant, std::tuple, std::move, std::hash 
 }
