@@ -7,12 +7,19 @@ using namespace std;
 class home{
     private:
     int arr [5] ;
+    
     //int inf_arr [] = {233,226,54,21,289,304};
     int arrmatrix [3][4][4] ; // 3 dimension matrix
 
     public:
     int no ;
     string address ;
+
+    // void sorting(){
+    //     array<int, 10> arrcc= {5,6,1,3,5,122,3,4,3,11};
+    //     cout << "Before Sorting" << endl;
+    //     cout << arrcc;
+    // }
 
     void setArrValue(int index, int value){
         if(index>=0 && index<5){
@@ -74,6 +81,7 @@ struct personal{
 }personptr;
 
 void whereisXYZ( int x, double y = 15, double z = 15.6){
+    cout<< "MSI ";
     cout << "address of x is " << &x << endl;
     cout << "value of x is " << x << endl;
     cout << "address of y is " << &y << endl;
@@ -110,11 +118,13 @@ void stringRepresent(){
 
 }
 
-inline int fac(int n){
+inline int fac(int n){  // stack မှာ နေရာမယူပဲ compile time မှာ ပဲ ကုဒ်ကို တစ်ခါတည်းဖြည်ချပေးတဲ့ function type..
     if (n<2) {return 2;};
     return n * fac(n-1);
 
 }
+
+inline bool div_by_3(int i){ return i % 3 == 0;};
 
 struct PrintVisitor {
     void operator()(int i) const {
@@ -282,6 +292,7 @@ while(true){
         case 9:
             cout << "------ inline fun Representation ! --------" << endl;
             cout << "total: " << fac0 + fac1 + fac2 << endl;
+            cout << div_by_3(15) << endl;
         break;
         case 10:
             typeUnionTest();
