@@ -1,9 +1,10 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
-void function1() {
+void function1(char a) {
+    //char b = a;
     for (int i = 0; i < 200; ++i) {
-        std::cout << "A";
+        std::cout << a;
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
 }
@@ -14,9 +15,10 @@ void function2() {
     }
 }
 int main() {
-    std::thread worker1(function1);
+    std::thread worker1(function1, 'H');
     std::thread worker2(function2);
     worker1.join();
     worker2.join();
     std::cout << "\n";
+    std::cout << __cplusplus << std::endl;
 }
