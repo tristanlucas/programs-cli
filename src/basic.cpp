@@ -37,6 +37,9 @@ class home{
             return -1;
         }
     }
+    void printtest(){
+        cout<<this;
+    }
 
     void printArr(){
         for (int i=0; i<5; i++){
@@ -164,6 +167,7 @@ void strFactory(){
 
 int main(){
 
+    
     int x = 11;
     int y = 15;
     
@@ -177,6 +181,7 @@ int main(){
     cout << "address of personpoint->weight is " << &personpoint->weight << endl;
     
     home h1;
+    cout<<&h1;
     h1.address = "South Okkaplapa";
     h1.no=223;
     int *a = &h1.no;
