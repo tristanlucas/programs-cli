@@ -1,5 +1,4 @@
 #include <iostream>
-#include <thread>
 #include <chrono>
 #include <algorithm>
 
@@ -30,6 +29,8 @@ void findOddSum(ull start, ull stop, ull* oddSum)
 		}
 	}
 }
+
+
 int main()
 {
 	ull start = 0, end = 1900000000;

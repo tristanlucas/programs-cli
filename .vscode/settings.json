@@ -106,6 +106,8 @@
     "variant": "cpp",
     "vector": "cpp",
     "algorithm": "cpp",
-    "charconv": "cpp"
+    "charconv": "cpp",
+    "condition_variable": "cpp",
+    "future": "cpp"
   }
 }
