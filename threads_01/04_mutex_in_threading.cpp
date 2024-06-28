@@ -8,7 +8,9 @@ int myAmount=0;  // resource , critical area , shared resource , မင်းက
 void addMoney()
 {
     m.lock();
+    for(int i=0 ; i< 100000; i++){
     ++myAmount;
+    }
     m.unlock();
 }
 

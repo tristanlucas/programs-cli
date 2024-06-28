@@ -1,15 +1,13 @@
 #include <iostream>
 #include <thread>
-#include <mutex>
 
-std::mutex m;
 
 int myAmount=0;  // resource , critical area , shared resource , မင်းကြိုက်သလိုခေါ်
 void addMoney()
 {
-    
+    for(int i=0 ; i< 100000; i++){
     ++myAmount;
-    
+    }
 }
 
 int main(void)
