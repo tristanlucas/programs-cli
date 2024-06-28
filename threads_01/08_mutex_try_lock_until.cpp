@@ -6,14 +6,37 @@
 int myAmount = 0;
 std::timed_mutex m;
 
+// void increment(int i)
+// {
+//     if(m.try_lock_for(std::chrono::seconds(13)))
+//     {
+//         auto now = std::chrono::steady_clock::now();
+        
+//         if(m.try_lock_until(now+ std::chrono::seconds(12)))
+//         {
+//             ++myAmount;
+            
+//             std::this_thread::sleep_for(std::chrono::seconds(2));
+//         }
+        
+//         std::cout << "Thread " << i << " Entered" << std::endl;
+//         m.unlock();
+//     }
+//     else{
+//         std::cout << "Thread " << i << "Couldn't Enter" << std::endl;
+//     }
+// }
+
 void increment(int i)
 {
-    if(m.try_lock_for(std::chrono::seconds(2)))
+    if(m.try_lock_for(std::chrono::seconds(13)))
     {
         auto now = std::chrono::steady_clock::now();
-        if(m.try_lock_until(now+ std::chrono::seconds(1)))
+        
+        if(m.try_lock_until(now+ std::chrono::seconds(12)))
         {
             ++myAmount;
+            
             std::this_thread::sleep_for(std::chrono::seconds(2));
         }
         
@@ -24,6 +47,8 @@ void increment(int i)
         std::cout << "Thread " << i << "Couldn't Enter" << std::endl;
     }
 }
+
+
 int main(void)
 {
     std::thread t1(increment,1);
@@ -31,7 +56,7 @@ int main(void)
 
     t1.join();
     t2.join();
-    
+    //std::cout<<"Amount is : "<< myAmount<<std::endl;
     return 0;
 
 }

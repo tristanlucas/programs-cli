@@ -13,7 +13,9 @@ void add100000()
         if( m.try_lock() )
         {
             //m.lock();
+            for(int i=0 ; i< 100000; i++){
             ++myAmount;
+             }
             m.unlock();
         }
         /*

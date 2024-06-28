@@ -20,6 +20,7 @@ void incrementXY(int& xORy, std::mutex& m, const char* desc)
         std::cout << desc << xORy << std::endl;
         m.unlock();
         doSomeWrokForSeconds(1);
+        //std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 }
 
