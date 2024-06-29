@@ -1,7 +1,7 @@
-// 9_conditionVariable.cpp
 #include <iostream>
 #include <thread>
 #include <mutex>
+#include <chrono>
 #include <condition_variable>
 
 std::mutex mtx;
@@ -21,8 +21,11 @@ int main() {
 
     {
         std::lock_guard<std::mutex> lock(mtx);
+        std::this_thread::sleep_for(std::chrono::seconds(5));
         ready = true;
+        
     }
+
     cv.notify_one();
 
     worker.join();
