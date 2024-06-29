@@ -14,6 +14,9 @@
 // 1. If we can avoid recursive_mutex then we should because it brings overhead to the system.
 // 2. It can be used in loops also.
 
+//you should use recursive mutexes, which allow a thread to lock the same 
+//mutex multiple times, or avoid locking the same mutex twice.
+
 #include <iostream>
 #include <thread>
 #include <mutex>
