@@ -14,7 +14,5 @@ int main()
 		t1.join();
 		throw;
 	}
-
-
 	return 0;
 }

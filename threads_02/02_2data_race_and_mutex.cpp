@@ -10,7 +10,7 @@ void increment() {
     for (int i = 0; i < 100000; ++i) {
         mtx.lock(); // Lock the mutex
         int currentValue = sharedVariable;
-        //std::this_thread::sleep_for(std::chrono::microseconds(1)); // Introduce a delay
+        std::this_thread::sleep_for(std::chrono::microseconds(1)); // Introduce a delay
         sharedVariable = currentValue + 1;
         mtx.unlock(); // Unlock the mutex
     }
