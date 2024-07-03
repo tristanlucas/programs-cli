@@ -108,6 +108,7 @@
     "algorithm": "cpp",
     "charconv": "cpp",
     "condition_variable": "cpp",
-    "future": "cpp"
+    "future": "cpp",
+    "shared_mutex": "cpp"
   }
 }
