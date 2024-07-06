@@ -7,8 +7,7 @@ std::mutex m;
 int myAmount=0;
 void add100000()
 {
-    for(int i=0;i<100000;i++)
-    {
+    
         // not waiting , just skiping
         if( m.try_lock() )
         {
@@ -25,7 +24,7 @@ void add100000()
             m.unlock();
         }
         */
-    }
+    
 }
 
 int main(void)

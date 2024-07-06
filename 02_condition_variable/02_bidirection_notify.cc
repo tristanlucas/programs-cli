@@ -26,7 +26,7 @@ void worker_thread()
  
     // manual unlocking is done before notifying, to avoid waking up
     // the waiting thread only to block again (see notify_one for details)
-    lk.unlock();
+    //lk.unlock();
     cv.notify_one();
 }
  

@@ -10,7 +10,7 @@ void reader() {
     // Acquire a shared lock for reading
     std::shared_lock<std::shared_mutex> lock(sharedMtx);
     std::cout << "Reader reads sharedResource: " << sharedResource << std::endl;
-    //std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Simulate reading work
+    std::this_thread::sleep_for(std::chrono::milliseconds(100)); 
 }
 
 void writer() {
@@ -18,11 +18,11 @@ void writer() {
     std::unique_lock<std::shared_mutex> lock(sharedMtx);
     ++sharedResource;
     std::cout << "Writer increments sharedResource to: " << sharedResource << std::endl;
-    //std::this_thread::sleep_for(std::chrono::milliseconds(150)); // Simulate writing work
+    std::this_thread::sleep_for(std::chrono::milliseconds(150)); 
 }
 
 int main() {
-    // Create one reader thread and one writer thread
+    // Create reader threads and writer threads
     std::thread readerThread(reader);
     std::thread writerThread(writer);
     std::thread writerThread1(writer);
