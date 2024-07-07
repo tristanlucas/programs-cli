@@ -24,9 +24,12 @@ int main(){
     std::future<int> fu = std::async(std::launch::async, factorial, std::ref(f));
 
     std::this_thread::sleep_for(std::chrono::milliseconds(400));
-    //p.set_value(4);
-    p.set_exception(std::make_exception_ptr(std::runtime_error("You broke the promises shit man!")));
-    
+    int a = 1;
+    if( a == 1){
+        p.set_value(4);
+    }else {
+        p.set_exception(std::make_exception_ptr(std::runtime_error("You broke the promises shit man!")));
+    }
     int x = fu.get();
     std::cout<<" Getting result from child thread = " << x << std::endl;
     return 0;

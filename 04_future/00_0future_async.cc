@@ -14,6 +14,6 @@ int main() {
     std::cout << "Computing the sum asynchronously...\n";
     int result = futureResult.get();
     std::cout << "Result: " << result << std::endl;
-    std::cout << "Result: " << futureResult.get() << std::endl;
+    //std::cout << "Result: " << futureResult.get() << std::endl;
     return 0;
 }

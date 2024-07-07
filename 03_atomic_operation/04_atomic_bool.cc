@@ -12,7 +12,6 @@ void wait_for_ready() {
 }
 
 void set_ready() {
-    // Simulate some work
     std::this_thread::sleep_for(std::chrono::seconds(1));
     ready.store(true, std::memory_order_release); // Set ready flag
 }

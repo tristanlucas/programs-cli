@@ -4,6 +4,8 @@
 #include <condition_variable>
 #include <vector>
 
+//decrement counting .. 
+
 class CountingSemaphore {
 public:
     explicit CountingSemaphore(int count) : count(count) {}
@@ -28,9 +30,9 @@ private:
 
 void worker(int id, CountingSemaphore& semaphore) {
     semaphore.acquire();
-    std::cout << "Thread " << id << " is working." << std::endl;
-    std::this_thread::sleep_for(std::chrono::seconds(1)); // Simulate work
-    std::cout << "Thread " << id << " is done." << std::endl;
+    std::cout << "Thread " << id << " is aquired." << std::endl;
+    std::this_thread::sleep_for(std::chrono::seconds(1)); 
+    std::cout << "Thread " << id << " is released." << std::endl;
     semaphore.release();
 }
 

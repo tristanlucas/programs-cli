@@ -21,8 +21,8 @@ int main(){
    
     std::promise<int> p ;
     std::future<int> f = p.get_future();
-    //std::thread t1 (factorial, 4, std::ref(x));
-
+    // std::thread t1 (factorial, 4, std::ref(x));
+    // t1.join();
     std::future<int> fu = std::async(std::launch::async, factorial, std::ref(f));
 
     std::this_thread::sleep_for(std::chrono::milliseconds(400));

@@ -22,11 +22,15 @@ int main(){
    
     std::promise<int> p ;
 
-    //std::promise<int> p2 = std::move(p); // only moveable , not copyable objects.
+    std::promise<int> p2 = std::move(p); // only moveable , not copyable objects.
 
-    std::future<int> f = p.get_future();
+    std::future<int> f = p2.get_future();
 
     std::shared_future<int> sf = f.share();
+
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    // Brocast Communication
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
     std::future<int> fu = std::async(std::launch::async, factorial, sf);
     std::future<int> fu1 = std::async(std::launch::async, factorial, sf);
     std::future<int> fu2 = std::async(std::launch::async, factorial, sf);
@@ -37,7 +41,7 @@ int main(){
     //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
     
     std::this_thread::sleep_for(std::chrono::milliseconds(400));
-    p.set_value(4);
+    p2.set_value(4);
     //p.set_exception(std::make_exception_ptr(std::runtime_error("You broke the promises shit man!")));
     
     int x = fu.get();
