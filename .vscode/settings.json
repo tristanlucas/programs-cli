@@ -110,6 +110,7 @@
     "condition_variable": "cpp",
     "future": "cpp",
     "shared_mutex": "cpp",
-    "semaphore": "cpp"
+    "semaphore": "cpp",
+    "thread": "cpp"
   }
 }
