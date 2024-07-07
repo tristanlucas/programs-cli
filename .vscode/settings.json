@@ -109,6 +109,7 @@
     "charconv": "cpp",
     "condition_variable": "cpp",
     "future": "cpp",
-    "shared_mutex": "cpp"
+    "shared_mutex": "cpp",
+    "semaphore": "cpp"
   }
 }

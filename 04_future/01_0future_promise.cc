@@ -24,7 +24,7 @@ int main() {
 
     // Wait for the result
     int result = futureResult.get();
-
+    //std::cout<< futureResult.get();
     std::cout << "Result: " << result << std::endl;
 
     t.join();
