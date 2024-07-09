@@ -111,6 +111,7 @@
     "future": "cpp",
     "shared_mutex": "cpp",
     "semaphore": "cpp",
-    "thread": "cpp"
+    "thread": "cpp",
+    "deque": "cpp"
   }
 }
