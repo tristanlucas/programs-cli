@@ -29,7 +29,7 @@ int main(){
 
     std::cout<< std::endl;
     std::jthread jt1(doSomeWork);
-    td::jthread jt2(doDoChaCha);
+    std::jthread jt2(doDoChaCha);
     // automatically destruction and 
     std::this_thread::sleep_for(1s);
     jt1.request_stop(); // interruption with stop token
