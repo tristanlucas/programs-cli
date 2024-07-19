@@ -9,9 +9,9 @@ int main()
 
 	//t1.join(); // main thread wait for t1 to finish
 	t1.detach();
-
-	if(t1.joinable())
-		t1.join();
-
+	std::cout << "Back To Main Threads" << std::endl;
+	//if(t1.joinable())
+	//	t1.join();
+	
 	return 0;
 }
