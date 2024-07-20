@@ -17,8 +17,14 @@ void function2() {
 int main() {
     std::thread worker1(function1, 'H');
     std::thread worker2(function2);
+
+    std::cout << "Worker1 ID is = " << worker1.get_id() <<std::endl;
+    std::cout << "Worker2 ID is = " << worker2.get_id() <<std::endl;
     worker1.join();
     worker2.join();
+    
+    std::cout << "Worker2 ID is = " << worker2.get_id() <<std::endl;
+
     std::cout << "\n";
     std::cout << __cplusplus << std::endl;
 }

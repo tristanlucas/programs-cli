@@ -11,12 +11,12 @@ void increment(int i)
     if(m.try_lock_for(std::chrono::seconds(2)))
     {
         ++myAmount;
-        std::this_thread::sleep_for(std::chrono::seconds(2));
+        std::this_thread::sleep_for(std::chrono::seconds(3));
         std::cout << "Thread " << i << " Entered" << std::endl;
         m.unlock();
     }
     else{
-        std::cout << "Thread " << i << "Couldn't Enter" << std::endl;
+        std::cout << "Thread " << i << " Couldn't Enter" << std::endl;
     }
 }
 int main(void)

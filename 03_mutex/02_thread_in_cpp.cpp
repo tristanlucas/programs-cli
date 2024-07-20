@@ -37,6 +37,9 @@ int main()
 
 	auto startTime = std::chrono::high_resolution_clock::now();
 
+	//findEvenSum(start, end,&evenSum);
+	//findOddSum(start,end, &oddSum);
+
 	std::thread t1(findEvenSum, start, end,&evenSum);
 	std::thread t2(findOddSum, start,end,&oddSum);
 

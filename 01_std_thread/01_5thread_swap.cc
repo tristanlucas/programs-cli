@@ -30,7 +30,7 @@ int main(){
               << "thread 2 id: " << t2.get_id() << '\n';
  
     t1.join();
-    t2.join();
+    t2.join(); 
 
     return 0 ;
 }

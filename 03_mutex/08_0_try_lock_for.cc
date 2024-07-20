@@ -6,7 +6,7 @@
 std::timed_mutex mtx;
 
 void attemptLockWithRelativeTime(int id) {
-    if (mtx.try_lock_for(std::chrono::seconds(1))) {
+    if (mtx.try_lock_for(std::chrono::seconds(2))) {
         std::cout << "Thread " << id << " acquired the lock." << std::endl;
         std::this_thread::sleep_for(std::chrono::seconds(2)); // Simulate work
         mtx.unlock();

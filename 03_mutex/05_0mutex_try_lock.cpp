@@ -8,7 +8,7 @@ int myAmount=0;
 void add100000()
 {
     
-        // not waiting , just skiping
+        //not waiting , just skiping
         if( m.try_lock() )
         {
             //m.lock();
@@ -17,13 +17,13 @@ void add100000()
              }
             m.unlock();
         }
-        /*
-        {
-            m.lock();
-            ++myAmount;
-            m.unlock();
-        }
-        */
+        
+        // {
+        //     m.lock();
+        //     ++myAmount;
+        //     m.unlock();
+        // }
+        
     
 }
 

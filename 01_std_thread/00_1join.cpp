@@ -14,7 +14,7 @@ int main() {
 	//t1.detach(); // t1 will freely on it's own .. daemon process
 
 	// do something
-
+	t1.get_id();
 	if(t1.joinable())
 		t1.join();
 	return 0;
