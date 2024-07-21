@@ -21,7 +21,7 @@ int main() {
 
     {
         std::lock_guard<std::mutex> lock(mtx);
-        std::this_thread::sleep_for(std::chrono::seconds(5));
+        std::this_thread::sleep_for(std::chrono::milliseconds(150));
         ready = true;
         
     }

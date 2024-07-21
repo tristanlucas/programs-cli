@@ -59,6 +59,7 @@ int main()
     // Calls X()(43); with async policy
     // prints "43" concurrently
     auto a3 = std::async(std::launch::async, X(), 43);
-    a2.wait();                     // prints "world!"
+    //a2.get(); 
+    a2.wait();                    // prints "world!"
     std::cout << a3.get() << '\n'; // prints "53"
 } // if a1 is not done at this point, destructor of a1 prints "Hello 42" here

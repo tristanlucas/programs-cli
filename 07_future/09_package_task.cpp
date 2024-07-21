@@ -3,6 +3,7 @@
 #include <thread>
 #include <chrono>
 #include <deque>
+#include <functional>
 
 using namespace std;
 

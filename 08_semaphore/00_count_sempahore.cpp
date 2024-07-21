@@ -1,6 +1,7 @@
 #include <iostream>
 #include <thread>
 #include <semaphore>
+#include <vector>
 
 std::counting_semaphore<3> sem(3);
 
@@ -21,3 +22,10 @@ int main() {
     }
     return 0;
 }
+
+// 10 >> 
+// Key 3 >> 
+// 3 Threads >> acquire >> 3 Keys >> 0 Keys
+// 7 Threads >> cannot acquire >> Wait >>
+// 3 Threads Release >> 3 Keys
+// 3 Threads >>   

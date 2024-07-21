@@ -22,11 +22,15 @@ int main() {
     for (int i = 0; i < num_threads; ++i) {
         threads.emplace_back(workerThread, i);
     }
+    
     {
         std::lock_guard<std::mutex> lock(mtx);
         ready = true; 
     }
+
     cv.notify_all(); 
+
+    
     for (auto& t : threads) {
         t.join();
     }

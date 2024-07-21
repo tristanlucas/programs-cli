@@ -8,7 +8,7 @@ int sharedVariable = 0;
 std::mutex mtx; // Mutex for synchronization
 
 void increment() {
-    for (int i = 0; i < 100000; ++i) {
+    for (int i = 0; i < 100; ++i) {
         mtx.lock(); // Lock the mutex
         int currentValue = sharedVariable;
         //std::this_thread::sleep_for(std::chrono::milliseconds(10)); // Introduce a delay

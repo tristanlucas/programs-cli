@@ -19,8 +19,8 @@ int main()
     std::cout << "waiting... " << std::flush;
     const auto start = std::chrono::system_clock::now();
  
-    f1.wait();
-    f2.wait();
+    //f1.wait();
+    //f2.wait();
  
     const auto diff = std::chrono::system_clock::now() - start;
     std::cout << std::chrono::duration<double>(diff).count() << " seconds\n";

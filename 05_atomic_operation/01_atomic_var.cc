@@ -7,7 +7,7 @@ int main(){
     
     int x = y.load(); // Equivalent to T x = y
     int z = 9;
-    y.store(z); // Equivalent to y = x
+    y.store(z); // Equivalent to y = z
     std::cout<< " integer x = " << x << std::endl;
     std::cout<< " atomic y = " << y.load() << std::endl;
 
